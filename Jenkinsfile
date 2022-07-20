@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{   
         AWS_S3 = "pipeline-eb"
-        ARTIFACT_NAME = "java-maven.war"
+        ARTIFACT_NAME = "hello-world.war"
 
     }
 
