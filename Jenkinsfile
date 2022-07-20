@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment{   
+        AWS_S3 = "pipeline-eb"
+        ARTIFACT_NAME = "java-maven.war"
+
+    }
+
 
     stages {
         stage('Validate') {
@@ -26,7 +32,7 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
-}
+        }
         stage('Package') {
             steps {
                 sh "mvn package"
@@ -38,5 +44,20 @@ pipeline {
                 }
             }
         }
+    
+        stage('publish artfacts to s3') {
+            steps {
+                sh "aws configure set region us-east-1" 
+                sh "aws s3 cp ./target/**.war s3://$AWS_S3/$ARTIFACT_NAME"
+            }
+        }
+
+        stage('deploy') {
+            steps {
+            echo "last stage"
+            
+            }
+        }
     }
 }
+
