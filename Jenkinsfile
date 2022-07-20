@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{  
-        AWS_S3_BUCKET = "pipeline-eb"
+        AWS_S3_BUCKET = "amjad-alhrbi-sda-devops-1"
         ARTIFACT_NAME = "hello-world.war"
 
     }
