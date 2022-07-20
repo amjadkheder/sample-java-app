@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{  
-        AWS_S3_BUCKET = "amjad-alhrbi-sda-devops-1"
+        AWS_S3_BUCKET = "pipeline-eb"
         ARTIFACT_NAME = "hello-world.war"
 
     }
@@ -48,7 +48,7 @@ pipeline {
         stage('publish artfacts to s3') {
             steps {
                 sh "aws configure set region us-east-1"  
-                sh "aws s3 cp .**/target/**.war s3://$AWS_S3_BUCKET/$ARTIFACT_NAME"
+                sh "aws s3 cp .sample-java-app/target/**.war s3://$AWS_S3_BUCKET/$ARTIFACT_NAME"
             }
         }
 
