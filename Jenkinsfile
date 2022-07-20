@@ -3,7 +3,8 @@ pipeline {
     environment{  
         AWS_S3_BUCKET = "pipeline-eb"
         ARTIFACT_NAME = "hello-world.war"
-
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
     }
 
 
