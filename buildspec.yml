@@ -26,11 +26,11 @@ phases:
     commands:
     - echo build start on 'date'
     - mvn package
-    - mv target/*.war 
+    - mv target/*.war ROOT.war
     - echo buil end on 'date'
 
 artifacts:
   failes:
-    - helloworld.war
+    - ROOT.war
   name: hello-world-artifact
    
