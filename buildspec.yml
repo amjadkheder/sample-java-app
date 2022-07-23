@@ -30,7 +30,7 @@ phases:
     - echo buil end on 'date'
 
 artifacts:
-  failes:
+  files:
     - ROOT.war
   name: hello-world-artifact
    
